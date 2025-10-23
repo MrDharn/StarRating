@@ -1,30 +1,36 @@
 import React, { useState } from 'react'
  import { RiStarSFill } from 'react-icons/ri';
 
-const StarRating = (noOfStars = 5) => {
+const StarRating = ({noOfStars= 5}) => {
     const [hover, setHover] = useState(0)
     const [star, setRating] = useState(0);
 
-    const handleStarRating = ()=> {
-        console.log("Yo There");
+    const handleStarRating = (id)=> {
+        setRating(id);
+        console.log(id)
     }
 
-    const handleMouseOver = ()=> {
-        console.log("Hello");
+    const handleMouseOver = (id)=> {
+       setHover(id)
+       console.log(id)
     }
-    const handleMouseRelease = ()=> {
+    const handleMouseRelease = (id)=> {
         console.log("hi");
     }
   return (
     <div>
         {
-            [...Array(5)].map((_, index)=> {
+            [...Array(noOfStars)].map((_, index)=> {
                 index += 1;
                 return(
-                    <RiStarSFill
-                    onMouseOver={()=> handleMouseOver()}
-                    onMouseLeave={()=> handleMouseRelease()}
-                    onClick={()=> handleStarRating(index)}/>
+                    <RiStarSFill key={index}
+                    onMouseOver={()=> handleMouseOver(index)}
+                    onMouseLeave={()=> handleMouseRelease(index)}
+                    onClick={()=> handleStarRating(index)}
+                    
+                    style={{cursor: "pointer",fontSize: "30px", color: index<= star || index<=hover ? "Gold" : "gray"
+
+                    }}/>
                 )
             })
         }

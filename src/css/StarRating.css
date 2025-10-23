@@ -1,0 +1,23 @@
+/* Star container */
+div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Default (inactive) star */
+.not-active {
+  color: #d3d3d3;           /* light gray */
+  /* font-size: 2.5rem;        fixed size */
+  /* cursor: pointer;
+  transition: color 0.25s ease; */
+}
+
+/* Active (selected or hovered) star */
+.active {
+  color: #ffb400;           /* golden yellow */
+  /* transition: color 0.25s ease; */
+}
+
+/* Optional: slight hover color tint */
